@@ -14,7 +14,7 @@ print(df)
 #     6 |     9
 
 print(df['b'] > 7)
-# <FakeSeries: b {1: 8, 2: 9}>
+# <FakeSeries: b {0: False, 1: True, 2: True}>
 
 print(df['a'][df['b'] > 7])
 # <FakeSeries: a {1: 5, 2: 6}>
