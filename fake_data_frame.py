@@ -16,14 +16,14 @@ class FakeSeries:
     def __gt__(self, other: int) -> 'FakeSeries':
         return FakeSeries(
             self.name,
-            {i: v for i, v in self.data.items() if v > other},
+            {i: v > other for i, v in self.data.items()},
         )
 
     # handle []
     def __getitem__(self, key: 'FakeSeries') -> 'FakeSeries':
         return FakeSeries(
             self.name,
-            {i: v for i, v in self.data.items() if i in key.data},
+            {i: v for i, v in self.data.items() if key.data.get(i, False)},
         )
 
     def __repr__(self) -> str:
